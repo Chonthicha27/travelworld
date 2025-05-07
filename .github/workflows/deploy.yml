@@ -24,3 +24,4 @@ jobs:
       run: |
         docker build -t mernregistry123.azurecr.io/backend:latest ./backend
         docker push mernregistry123.azurecr.io/backend:latest
+# Fixed docker login username/password
