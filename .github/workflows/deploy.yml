@@ -9,22 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout code from repo
     - uses: actions/checkout@v3
 
-    # 2. Login to Azure Container Registry (ACR)
     - name: Docker Login
       run: |
-        echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login mernregistry123.azurecr.io -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
+        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login mernregistry123-f7axhhhngaa2cxf0.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
-    # 3. Build and Push Frontend image
     - name: Build and Push Frontend
       run: |
-        docker build -t mernregistry123.azurecr.io/frontend:latest ./frontend
-        docker push mernregistry123.azurecr.io/frontend:latest
+        docker build -t mernregistry123-f7axhhhngaa2cxf0.azurecr.io/frontend:latest ./frontend
+        docker push mernregistry123-f7axhhhngaa2cxf0.azurecr.io/frontend:latest
 
-    # 4. Build and Push Backend image
     - name: Build and Push Backend
       run: |
-        docker build -t mernregistry123.azurecr.io/backend:latest ./backend
-        docker push mernregistry123.azurecr.io/backend:latest
+        docker build -t mernregistry123-f7axhhhngaa2cxf0.azurecr.io/backend:latest ./backend
+        docker push mernregistry123-f7axhhhngaa2cxf0.azurecr.io/backend:latest
