@@ -27,3 +27,4 @@ jobs:
       run: |
         docker build -t mernregistry123-f7axhhhngaa2cxf0.azurecr.io/backend:latest ./backend
         docker push mernregistry123-f7axhhhngaa2cxf0.azurecr.io/backend:latest
+#d
