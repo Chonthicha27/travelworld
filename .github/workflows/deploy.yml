@@ -11,9 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Docker Login
-      run: |
-        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login mernregistry123-f7axhhhngaa2cxf0.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+    - name: Docker Login to Azure Container Registry
+      uses: azure/docker-login@v1
+      with:
+        login-server: mernregistry123-f7axhhhngaa2cxf0.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: Build and Push Frontend
       run: |
